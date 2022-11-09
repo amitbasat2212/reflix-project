@@ -26,7 +26,8 @@ class App extends Component {
             {username:"Shalev",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU33Io5Mgoxj4Hil4F0ctBZUBEXhoQd9fYEg&usqp=CAU"},
         ],   
       userBudget:100000,
-      AmountToReduc:300
+      AmountToReduc:300,
+      rentedMovies:[]
     }
   }
 
@@ -39,6 +40,7 @@ class App extends Component {
   render() {
     const stateMovies = this.state.Movies
     const users =this.state.Users;
+    const rentedMovies =this.state.rentedMovies;
     return (
       <Router>
       <div className="App">
@@ -48,7 +50,7 @@ class App extends Component {
             <Link className='linkColor' to="/Movies">Movies</Link>
         </div>
         <Route path="/" exact render={() => <LandingPage users={users} />} />       
-        <Route path="/Movies" exact render={() => <Movies Movies={stateMovies}/>} />       
+        <Route path="/Movies" exact render={() => <Movies MoviesRented={rentedMovies} Movies={stateMovies}/>} />       
       </div>
       </Router>
     );  

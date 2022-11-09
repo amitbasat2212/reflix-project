@@ -13,10 +13,8 @@ class Movie extends Component {
         return (           
           <div class="card space" style={{width: 18+'rem'}}>
             <img src={movie.img} class=" image-max card-img-top card-img-top max-images"  alt="..."/>
-            <button className='plusButton'>rent Movie</button>
-        
-            </div>
-            
+            <button className='plusButton'>rent Movie</button>        
+            </div>            
             )
 
     }
