@@ -2,14 +2,15 @@
     margin: 20px;
 }
 
-.plusButton{
+.ButtonMovie{
     position: absolute;
-	padding: 8px;
+	padding: 2.5px;
 	background-color: blue;
 	border-radius: 16px;
 	bottom: 10px;
 	left: 90px;
 	width: 100px;
+    color: aliceblue;
   }
 
 .card-img-top {

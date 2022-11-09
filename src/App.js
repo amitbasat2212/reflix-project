@@ -20,20 +20,41 @@ class App extends Component {
         { id: 4, isRented: false, title: "Beauty and the Beast", year: 2016, img: "https://images-na.ssl-images-amazon.com/images/I/51ArFYSFGJL.jpg", descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so some would say, given how actively progressive she is regarding women's rights. Rumor has it that in the bonus scenes she whips out a wand and turns Gaston into a toad, but in order to watch those scenes you need to recite a certain incantation." }
       ],
       Users:[
-            {username:"Adi",image:"https://ih0.redbubble.net/image.618379802.1473/flat,1000x1000,075,f.u2.jpg"},
-            {username:"Moriel",image:"https://ih0.redbubble.net/image.618410871.2644/flat,1000x1000,075,f.u2.jpg"},
-            {username:"Yael",image:"https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"},
-            {username:"Shalev",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU33Io5Mgoxj4Hil4F0ctBZUBEXhoQd9fYEg&usqp=CAU"},
-        ],   
-      userBudget:100000,
+            {id:0,username:"Adi",image:"https://ih0.redbubble.net/image.618379802.1473/flat,1000x1000,075,f.u2.jpg",budget:20000},
+            {id:1,username:"Moriel",image:"https://ih0.redbubble.net/image.618410871.2644/flat,1000x1000,075,f.u2.jpg",budget:30000},
+            {id:2,username:"Yael",image:"https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png",budget:40000},
+            {id:3,username:"Shalev",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU33Io5Mgoxj4Hil4F0ctBZUBEXhoQd9fYEg&usqp=CAU",budget:50000},
+        ],  
       AmountToReduc:300,
       rentedMovies:[]
     }
   }
 
-  reduceBudge=()=>{
+  
+
+
+  rentMovie=(userId,movieId)=>{
+    const users=[...this.state.Users]
+    const movies=[...this.state.Movies]
+    movies.forEach((element) => {
+        if(element.id === parseInt(userId)) {
+            element.isRented=true;
+        }
+    }); 
+    users.forEach((element) => {
+        if(element.id === parseInt(movieId)) {
+            element.budget-=this.state.AmountToReduc;
+        }
+    });   
+
+    this.setUsersAndMoviesProperties(users,movies)
+   
+  }
+
+  setUsersAndMoviesProperties=(users,movies)=>{
     this.setState({
-        userBudget:this.state.userBudget-this.state.AmountToReduc
+        Users:users,
+        Movies:movies    
     })
   }
   
@@ -49,8 +70,16 @@ class App extends Component {
             <Link className='linkColor' to="/">Home</Link>            
             <Link className='linkColor' to="/Movies">Movies</Link>
         </div>
-        <Route path="/" exact render={() => <LandingPage users={users} />} />       
-        <Route path="/Movies" exact render={() => <Movies MoviesRented={rentedMovies} Movies={stateMovies}/>} />       
+        <Route path="/" exact render={() => <LandingPage users={users} />} />    
+
+        <Route path="/Movies/User/:id" exact render={({ match }) =>
+         <Movies match={match}
+          MoviesRented={rentedMovies}
+          Movies={stateMovies}
+          rentMovie={this.rentMovie}/>} />       
+       
+        <Route path="/Movies/:id" exact render={() => 
+        <Movies  MoviesRented={rentedMovies} Movies={stateMovies}/>} />       
       </div>
       </Router>
     );  

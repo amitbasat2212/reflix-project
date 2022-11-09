@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+
 // import '../styles/fentity-directory.css'
 
 import Movie from './Movie';
@@ -7,14 +7,15 @@ import Movie from './Movie';
 class CatalogAndRented extends Component {
     
     render() {  
-        const Movies = this.props.Movies         
+        const Movies = this.props.Movies
+        const userConnected = this.props.userConnected         
         return (
-            <div class="row row-cols-2">
+            <div className="row row-cols-2">
                 {Movies.map(m => {
                               return (                           
-                                <div class="col-3 col-md-3">
+                                <div className="col-3 col-md-3">
                                   <div className="Movie-Container">
-                                     <Movie reduceBudge={this.props.reduceBudge} movie={m} />
+                                     <Movie userConnected={userConnected} rentMovie={this.props.rentMovie} movie={m} />
                                   </div>               
                                   </div>             
                               )
