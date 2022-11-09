@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-// import '../styles/fentity-directory.css'
+import '../styles/profileStyle.css'
 import User from './User';
 
 class LandingPage extends Component {
@@ -8,8 +8,9 @@ class LandingPage extends Component {
         const Users =this.props.users; 
         return (
             <div>
-                <h1 id="Landing-title">Whos Watching?</h1>
-                <div id="fentities-container">
+              <div className="profiles-container">
+                <span className="title">Who's watching?</span>
+                <div className="profiles">
                     {Users.map(u => {
                         return (                           
                             <div className="User-Container">
@@ -18,6 +19,9 @@ class LandingPage extends Component {
                         )
                     })}
                 </div>
+               
+             </div>
+           
             </div>)
     }
 }

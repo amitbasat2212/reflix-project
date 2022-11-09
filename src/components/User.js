@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-// import '../styles/fentity-directory.css'
 
+import '../styles/profileStyle.css'
 class User extends Component {
     
     render() {
         const user=this.props.user     
         return (
-            <div>
-              <h2>{user}</h2>                
-            </div>)
+            <div className='profile'>
+                <img className="image" alt="hello" src={user.image} />
+                <span className="username">{user.username}</span>
+            </div>           
+            
+            )
+
+            
     }
+
+    
 }
 
 export default User
