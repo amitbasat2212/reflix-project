@@ -9,6 +9,7 @@ import LandingPage from './components/LandingPage';
 import Movies from './components/Movies';
 import NavBar from './components/NavBar';
 import MovieDetailes from './components/MovieDetailes';
+import {ChangeRentedMoviesInState,changeUserBudget,changeIsRentedInMovies}  from './AppUtils';
 
 class App extends Component {
   constructor() {
@@ -34,40 +35,7 @@ class App extends Component {
   }
 
   
-  addRentedMoviesToState=(rentedMovies,movieId,movie)=>{
-    if(rentedMovies.length==0){
-        rentedMovies.push(movie) 
-    }else{
-        const movieRented = rentedMovies.findIndex((m) => m.id === parseInt(movieId));
-        if(movieRented>=0){
-            rentedMovies.splice(movieRented, 1);
-        }else{
-            rentedMovies.push(movie)
-        }
-
-    }   
-    
-    
-  }
-
-   
-  changeIsRentedInMovies=(movies,movieId,isRentedOrReturn)=>{
-    movies.forEach((element) => {
-        if(element.id === parseInt(movieId)) {            
-            element.isRented=isRentedOrReturn;
-        }
-    });    
-  }
-
-  changeUserBudget=(users,userId,movie,opertor)=>{
-    users.forEach((element) => {
-        if(element.id === parseInt(userId)) {
-            const budget = opertor*movie.budget
-            element.budget-=budget;
-        }
-    }); 
-  }
-
+  
   setUsersAndMoviesProperties=(users,movies,rentedMovies)=>{    
     this.setState({
         Users:users,
@@ -83,9 +51,9 @@ class App extends Component {
     let movie=this.state.Movies.find(m=>m.id==parseInt(movieId));
    
 
-    this.changeIsRentedInMovies(movies,movieId,isRentedOrReturn) 
-    this.addRentedMoviesToState(rentedMovies,movieId,movie) 
-    this.changeUserBudget(users,userId,movie,opertor) 
+    changeIsRentedInMovies(movies,movieId,isRentedOrReturn) 
+    ChangeRentedMoviesInState(rentedMovies,movieId,movie) 
+    changeUserBudget(users,userId,movie,opertor) 
     this.setUsersAndMoviesProperties(users,movies,rentedMovies)
    
   }
