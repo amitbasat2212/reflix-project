@@ -19,7 +19,10 @@ class Movies extends Component {
                </div>:null}
 
                <div className="movies">  
-                <CatalogAndRented  rentMovie={this.props.rentMovie} userConnected={userConnected} Movies={Movies}/> 
+                <CatalogAndRented refundMovie={this.props.refundMovie}
+                  rentMovie={this.props.rentMovie}
+                  userConnected={userConnected}
+                  Movies={Movies}/> 
                 </div>
           </div>)
 

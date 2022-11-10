@@ -15,7 +15,9 @@ class CatalogAndRented extends Component {
                               return (                           
                                 <div className="col-3 col-md-3">
                                   <div className="Movie-Container">
-                                     <Movie userConnected={userConnected} rentMovie={this.props.rentMovie} movie={m} />
+                                     <Movie refundMovie={this.props.refundMovie}
+                                      userConnected={userConnected}
+                                      rentMovie={this.props.rentMovie} movie={m} />
                                   </div>               
                                   </div>             
                               )
