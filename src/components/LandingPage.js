@@ -8,7 +8,7 @@ class LandingPage extends Component {
         const users =this.props.users; 
         return (
             <div>                 
-              <Users users={users}/>
+              <Users loginUser={this.props.loginUser} users={users}/>
             </div>)
     }
 }

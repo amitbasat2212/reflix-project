@@ -5,21 +5,21 @@ import '../styles/NavBarStyle.css'
 
 
 class NavBar extends Component {
-    render() {
-         
+    render() {    
+        const userConnected=this.props.userConnected;     
         return (
-            <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">            
-            <a class="navbar-brand" href="#">
+            <nav className="navbar navbar-expand-lg bg-dark">
+            <div className="container-fluid">            
+            <a className="navbar-brand" href="#">
                 <img src="https://previews.123rf.com/images/ajiwaluyo/ajiwaluyo2010/ajiwaluyo201000008/157999541-cute-corgi-dog-logo-illustration.jpg" alt="movies" width="60" height="60"/>
              </a>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav">
+                  <li className="nav-item">
                    <HomeButton/>
                   </li>
-                  <li class="nav-item">
-                    <MovieButton/>
+                  <li className="nav-item">
+                    <MovieButton userConnected={userConnected}/>
                   </li>                 
                 </ul>
               </div>

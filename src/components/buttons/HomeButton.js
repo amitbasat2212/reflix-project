@@ -9,7 +9,7 @@ class HomeButton extends Component {
             <div>
                 <div>
                 <Link className='linkColor' to="/">
-                 <a class="nav-link active" aria-current="page" href="#">Home</a>
+                 <a className="nav-link active" aria-current="page" href="#">Home</a>
                 </Link>
             </div> 
             </div>

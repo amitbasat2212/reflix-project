@@ -13,7 +13,7 @@ class Users extends Component {
                 {Users.map(u => {
                     return (                           
                         <div className="User-Container">
-                           <User user={u} />
+                           <User loginUser={this.props.loginUser}  user={u} />
                         </div>                            
                     )
                 })}
