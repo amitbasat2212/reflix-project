@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route,Link} from 'react-router-dom'
 import LandingPage from './components/LandingPage';
 
 import Movies from './components/Movies';
+import NavBar from './components/NavBar';
 
 class App extends Component {
   constructor() {
@@ -33,7 +34,7 @@ class App extends Component {
 
 
   
-  changingTheStateOfMoviesAndUser=(userId,movieId,opertor,isRentedOrReturn)=>{
+  changingTheStateOfMoviesAndUsers=(userId,movieId,opertor,isRentedOrReturn)=>{
     const users=[...this.state.Users]
     const movies=[...this.state.Movies]
     let movie;
@@ -53,23 +54,24 @@ class App extends Component {
    
   }
 
-  rentMovie=(userId,movieId)=>{
-    this.changingTheStateOfMoviesAndUser(userId,movieId,1,true)
-   
-  }
-
-  refundMovie=(userId,movieId)=>{
-    this.changingTheStateOfMoviesAndUser(userId,movieId,-1,false)
-  }
-
-  setUsersAndMoviesProperties=(users,movies)=>{
-    console.log(users)
-    console.log(movies)
+  setUsersAndMoviesProperties=(users,movies)=>{    
     this.setState({
         Users:users,
         Movies:movies    
     })
   }
+
+
+  rentMovie=(userId,movieId)=>{
+    this.changingTheStateOfMoviesAndUsers(userId,movieId,1,true)
+   
+  }
+
+  refundMovie=(userId,movieId)=>{
+    this.changingTheStateOfMoviesAndUsers(userId,movieId,-1,false)
+  }
+
+  
   
   render() {
     const stateMovies = this.state.Movies
@@ -80,8 +82,8 @@ class App extends Component {
       <div className="App">
         <div id="home-background"></div>
         <div id="main-links">
-            <Link className='linkColor' to="/">Home</Link>            
-            <Link className='linkColor' to="/Movies">Movies</Link>
+            <NavBar/>       
+            
         </div>
         <Route path="/" exact render={() => <LandingPage users={users} />} />    
 

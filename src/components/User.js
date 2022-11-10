@@ -7,12 +7,14 @@ class User extends Component {
     render() {
         const user=this.props.user     
         return (
-            <Link to={`/Movies/User/${user.id}`}>  
+           
             <div className='profile'>
+                <Link to={`/Movies/User/${user.id}`}>  
                 <img className="image" alt="hello" src={user.image} />
+                </Link>
                 <span className="username">{user.username}</span>
             </div>
-            </Link>           
+                       
             
             )
 
