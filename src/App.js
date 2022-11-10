@@ -38,15 +38,14 @@ class App extends Component {
     if(rentedMovies.length==0){
         rentedMovies.push(movie) 
     }else{
-        rentedMovies.forEach((item, index, object) => {
-            if(item.id === parseInt(movieId)) {
-                object.splice(index, 1);
-            }
-            else{
-                rentedMovies.push(item) 
-            }
-        });  
-    }
+        const movieRented = rentedMovies.findIndex((m) => m.id === parseInt(movieId));
+        if(movieRented>=0){
+            rentedMovies.splice(movieRented, 1);
+        }else{
+            rentedMovies.push(movie)
+        }
+
+    }   
     
     
   }
@@ -90,8 +89,6 @@ class App extends Component {
     this.setUsersAndMoviesProperties(users,movies,rentedMovies)
    
   }
-
-
   
 
   getUser=(userId)=>{
