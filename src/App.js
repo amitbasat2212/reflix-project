@@ -48,8 +48,7 @@ class App extends Component {
     const users=[...this.state.Users]
     const movies=[...this.state.Movies]
     const rentedMovies = [...this.state.rentedMovies]
-    let movie=this.state.Movies.find(m=>m.id==parseInt(movieId));
-   
+    let movie=this.state.Movies.find(m=>m.id==parseInt(movieId));   
 
     changeIsRentedInMovies(movies,movieId,isRentedOrReturn) 
     ChangeRentedMoviesInState(rentedMovies,movieId,movie) 
@@ -64,6 +63,7 @@ class App extends Component {
     
   }
 
+  
   loginUser=(userId)=>{
     const user = this.state.Users.find(u=>u.id==parseInt(userId))
     this.setState({

@@ -15,7 +15,7 @@ class Movies extends Component {
             <div>
            <div className="movie-list-container">
               <UserDetails userId={userConnected} getUser={this.props.getUser}/>            
-            <h2 className="title">catagories</h2>  
+            <h2 className="title headline">catagories</h2>  
              <div className="movies">               
                 <CatalogAndRented refundMovie={this.props.refundMovie}
                   rentMovie={this.props.rentMovie}
@@ -25,7 +25,7 @@ class Movies extends Component {
           </div>
           
           <div className="movie-list-container">
-          <h2 className="title">rented</h2>  
+          <h2 className="title headline">rented</h2>  
             {rentedMovies.length!=0?
                 <div className="Rented">
                  <CatalogAndRented

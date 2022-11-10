@@ -10,7 +10,8 @@ class CatalogAndRented extends Component {
         const Movies = this.props.Movies
         const userConnected = this.props.userConnected         
         return (
-            <div className="row row-cols-2">
+            <div class="card-deck mt-20 ">
+            <div className="row row-cols-2">                
                 {Movies.map(m => {
                               return (                           
                                 <div className="col-3 col-md-3">
@@ -21,7 +22,8 @@ class CatalogAndRented extends Component {
                                   </div>               
                                   </div>             
                               )
-                          })}                     
+                          })}   
+                    </div>                  
               </div>
             )
     }
