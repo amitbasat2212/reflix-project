@@ -1,4 +1,5 @@
 import React, { Component} from 'react'
+import '../styles/SearchBar.css'
 
 export default class SearchBar extends Component {
 
@@ -27,9 +28,12 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <div className="input-group">
+        
+     <div>
+      <div className="input-max space  input-group">
         <input name='serchValue'  onChange={this.SetSearchValue} type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-        <button type="button" onClick={this.filterTheMovies} className="btn btn-outline-primary">search</button>
+        <button type="button" onClick={this.filterTheMovies} className="btn btn-primary">search</button>
+      </div>
       </div>
     )
   }

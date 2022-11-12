@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import '../styles/MovieStyle.css'
 
 
+
 import CatalogAndRented from './CatalogAndRented';
 import UserDetails from './UserDetailes';
 import SearchBar from './SearchBar';
@@ -43,8 +44,10 @@ class Movies extends Component {
             <div>
                 <SearchBar  FilterTheMovies={this.FilterTheMovies} />
            <div className="movie-list-container">
-              <UserDetails userId={userConnected} getUser={this.props.getUser}/>            
-            <h2 className="title headline">catagories</h2>  
+            <div className='user-detailes'>
+           <UserDetails userId={userConnected} getUser={this.props.getUser}/> 
+           </div>
+            <h2 className="title headline space">catagories</h2>  
              <div className="movies">               
                 <CatalogAndRented refundMovie={this.props.refundMovie}
                   rentMovie={this.props.rentMovie}
@@ -54,7 +57,7 @@ class Movies extends Component {
           </div>
           
           <div className="movie-list-container">
-          <h2 className="title headline">rented</h2>  
+          <h2 className="title headline space">rented</h2>  
             {rentedMovies.length!=0?
                 <div className="Rented">
                  <CatalogAndRented

@@ -1,0 +1,13 @@
+.card-user{
+  background-repeat: no-repeat; 
+  width: auto;
+  height: 100px; 
+ }
+
+
+
+ .user-detailes{
+    position: relative;
+    left: 600px;
+    top: -30px;
+ }

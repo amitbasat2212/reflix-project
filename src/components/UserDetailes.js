@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-import '../styles/profileStyle.css'
+import '../styles/UserDetailes.css'
 class UserDetails extends Component {
     
     getUser=()=>{
@@ -10,12 +10,17 @@ class UserDetails extends Component {
 
     render() {
         const user=this.getUser(this.props.userId)        
-            
-        return (           
-            <form className="d-flex" role="search">               
-                <p> username: {user.username}</p>             
-                <p> budget: {user.budget}</p>
-            </form>                     
+
+        return (                         
+
+                <div className="card card-user-body" style={{width: 10+'rem'}}>
+                    <img src={user.image} className="card-img-top card-user" alt="..."/>
+                    <div className="card-body card-user-body">
+                    <p className="card-text">userName: {user.username} her budget is:{user.budget}</p>
+                    
+                </div>
+                </div>
+                               
             
             )
 
