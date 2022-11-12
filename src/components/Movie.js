@@ -4,9 +4,11 @@ import { Link} from 'react-router-dom'
 import '../styles/MovieStyle.css'
 
 class Movie extends Component {
+
+   
     
-    rentMovie=()=>{
-        this.props.rentMovie(this.props.userConnected,this.props.movie.id)
+    rentMovie=()=>{     
+       this.props.rentMovie(this.props.userConnected,this.props.movie.id)
     }
 
     refundMovie=()=>{

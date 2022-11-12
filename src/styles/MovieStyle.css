@@ -14,6 +14,7 @@
 	left: 90px;
 	width: 100px;
     color: aliceblue;
+    cursor: pointer;
   }
 
 .card-img-top {

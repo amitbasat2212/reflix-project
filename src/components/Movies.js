@@ -13,28 +13,32 @@ class Movies extends Component {
         super()
         this.state=({
             SerachValue:"",
-            MoviesFilter:[]
+            MoviesFilter:[],
+            MovieRentedFilter:[]
         })
     }
     
-    SetSearchValuesAndFilter=(serchValue,MoviesFilter)=>{        
+    SetSearchValuesAndFilter=(serchValue,MoviesNotRentedFilter,movieRented)=>{        
         this.setState({
             SerachValue:serchValue,
-            MoviesFilter:MoviesFilter
+            MoviesFilter:MoviesNotRentedFilter,
+            MovieRentedFilter:movieRented
         })
         
       } 
 
       FilterTheMovies=(serchValue)=>{
-        const movies = this.props.Movies.filter(m=>findWord(serchValue,m.title))
-        this.SetSearchValuesAndFilter(serchValue,movies)
-        return movies;
+        const moviesNotRented = this.props.Movies.filter(m=>findWord(serchValue.toLowerCase(),m.title))
+        const movieRented = this.props.MoviesRented.filter(m=>findWord(serchValue.toLowerCase(),m.title))
+        this.SetSearchValuesAndFilter(serchValue,moviesNotRented,movieRented)
+        
       }
 
     render() {     
         const Movies = this.state.SerachValue==""?this.props.Movies:this.state.MoviesFilter
-        const rentedMovies=this.props.MoviesRented  
+        const rentedMovies= this.state.SerachValue==""?this.props.MoviesRented:this.state.MovieRentedFilter 
         const userConnected = this.props.match.params.id 
+
         return (
             <div>
                 <SearchBar  FilterTheMovies={this.FilterTheMovies} />
