@@ -10,7 +10,7 @@ class CatalogAndRented extends Component {
         const Movies = this.props.Movies
         const userConnected = this.props.userConnected         
         return (
-            <div class="card-deck mt-20 ">
+            <div className="card-deck mt-20 ">
             <div className="row row-cols-2">                
                 {Movies.map(m => {
                               return (                           

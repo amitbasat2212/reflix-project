@@ -24,17 +24,20 @@
         });    
       }
     
-      export const changeUserBudget=(users,userId,movie,opertor)=>{
+      export const changeUserBudget=(users,userId,budgetForMovie,opertor)=>{
         users.forEach((element) => {
             if(element.id === parseInt(userId)) {
-                const budget = opertor*movie.budget
+                const budget = opertor*budgetForMovie
                 element.budget-=budget;
             }
         }); 
       }
-    
+
+      export function findWord(searchvalue, str) {
+        return str.includes(searchvalue)
+      }
     
       
 
-export default {ChangeRentedMoviesInState,changeUserBudget,changeIsRentedInMovies}
+
 
