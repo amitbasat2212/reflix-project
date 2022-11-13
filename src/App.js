@@ -8,6 +8,7 @@ import LandingPage from './components/LandingPage';
 
 import Movies from './components/Movies';
 import NavBar from './components/NavBar';
+
 import MovieDetailes from './components/MovieDetailes';
 import {ChangeRentedMoviesInState,changeUserBudget,findWord,changeIsRentedInMovies}  from './AppUtils';
 
@@ -39,6 +40,13 @@ class App extends Component {
       userConnected:{id:0,username:"Adi",image:"https://ih0.redbubble.net/image.618379802.1473/flat,1000x1000,075,f.u2.jpg",budget:20000},
     }
   }
+
+    static get myConstant() {
+        return {
+            OPERTORFORRENTED : -1,
+            OPERTORFORCATALOG : 1
+        }
+    }
 
   
   
@@ -72,11 +80,6 @@ class App extends Component {
 
   
 
-  FilterTheMoviesBySearch=(serchValue)=>{
-    return this.stat
-  }
-
-
   loginUser=(userId)=>{
     const user = this.state.Users.find(u=>u.id==parseInt(userId))
     this.setState({
@@ -90,12 +93,15 @@ class App extends Component {
 
 
   rentMovie=(userId,movieId)=>{
-    this.changingTheStateOfMoviesAndUsers(userId,movieId,1,true)
+    if(this.state.userConnected.budget<=0){
+        
+    }
+    this.changingTheStateOfMoviesAndUsers(userId,movieId,this.constructor.myConstant.OPERTORFORCATALOG,true)
    
   }
 
   refundMovie=(userId,movieId)=>{
-    this.changingTheStateOfMoviesAndUsers(userId,movieId,-1,false)
+    this.changingTheStateOfMoviesAndUsers(userId,movieId,this.constructor.myConstant.OPERTORFORRENTED,false)
   }
 
   
@@ -110,8 +116,7 @@ class App extends Component {
       <div className="App">
         <div id="home-background"></div>
         <div id="main-links">
-            <NavBar userConnected={userConnected}/>      
-            
+            <NavBar userConnected={userConnected}/>                  
         </div> 
         <div>     
         <Route path="/" exact render={() => <LandingPage

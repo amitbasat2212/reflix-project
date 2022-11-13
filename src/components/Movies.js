@@ -43,10 +43,22 @@ class Movies extends Component {
         return (
             <div>
                 <SearchBar  FilterTheMovies={this.FilterTheMovies} />
+                <div className='user-detailes'>
+                    <UserDetails userId={userConnected} getUser={this.props.getUser}/> 
+                </div>
+         <div className="movie-list-container">          
+            {rentedMovies.length!=0?            
+                    <div className="Rented">
+                    <h2 className="title headline space">rented</h2>  
+                    <CatalogAndRented
+                    refundMovie={this.props.refundMovie}
+                    rentMovie={this.props.rentMovie}
+                    userConnected={userConnected}
+                    Movies={rentedMovies} />
+                    </div>:null}
+                </div>
            <div className="movie-list-container">
-            <div className='user-detailes'>
-           <UserDetails userId={userConnected} getUser={this.props.getUser}/> 
-           </div>
+           
             <h2 className="title headline space">catagories</h2>  
              <div className="movies">               
                 <CatalogAndRented refundMovie={this.props.refundMovie}
@@ -56,17 +68,7 @@ class Movies extends Component {
                 </div>
           </div>
           
-          <div className="movie-list-container">
-          <h2 className="title headline space">rented</h2>  
-            {rentedMovies.length!=0?
-                <div className="Rented">
-                 <CatalogAndRented
-                 refundMovie={this.props.refundMovie}
-                 rentMovie={this.props.rentMovie}
-                 userConnected={userConnected}
-                 Movies={rentedMovies} />
-                </div>:null}
-                </div>
+          
             </div>
  
           
