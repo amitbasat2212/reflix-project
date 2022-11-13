@@ -35,6 +35,17 @@ class Movies extends Component {
         
       }
 
+      renderTheCatalogAndRented=(userConnected,movies)=>{
+        return(
+            <CatalogAndRented
+            refundMovie={this.props.refundMovie}
+            rentMovie={this.props.rentMovie}
+            userConnected={userConnected}
+            Movies={movies} />
+        )
+      }
+
+        
     render() {     
         const Movies = this.state.SerachValue==""?this.props.Movies:this.state.MoviesFilter
         const rentedMovies= this.state.SerachValue==""?this.props.MoviesRented:this.state.MovieRentedFilter 
@@ -50,24 +61,15 @@ class Movies extends Component {
             {rentedMovies.length!=0?            
                     <div className="Rented">
                     <h2 className="title headline space">rented</h2>  
-                    <CatalogAndRented
-                    refundMovie={this.props.refundMovie}
-                    rentMovie={this.props.rentMovie}
-                    userConnected={userConnected}
-                    Movies={rentedMovies} />
+                    {this.renderTheCatalogAndRented(userConnected,rentedMovies)}
                     </div>:null}
                 </div>
-           <div className="movie-list-container">
-           
+           <div className="movie-list-container">           
             <h2 className="title headline space">catagories</h2>  
              <div className="movies">               
-                <CatalogAndRented refundMovie={this.props.refundMovie}
-                  rentMovie={this.props.rentMovie}
-                  userConnected={userConnected}
-                  Movies={Movies}/>                 
+                    {this.renderTheCatalogAndRented(userConnected,Movies)}                
                 </div>
-          </div>
-          
+          </div>         
           
             </div>
  
