@@ -45,6 +45,8 @@ class Movies extends Component {
         )
       }
 
+      
+
         
     render() {     
         const Movies = this.state.SerachValue==""?this.props.Movies:this.state.MoviesFilter

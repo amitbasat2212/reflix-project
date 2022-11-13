@@ -28,7 +28,7 @@ class App extends Component {
         { id: 8, isRented: false, title: "corgikazabln", year: 2016, img: "https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images/artworkimages/medium/1/welsh-corgi-cardigan-art-canvas-print-casablanca-movie-poster-sandra-sij.jpg", descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so some would say, given how actively progressive she is regarding women's rights. Rumor has it that in the bonus scenes she whips out a wand and turns Gaston into a toad, but in order to watch those scenes you need to recite a certain incantation."}
       ],
       Users:[
-            {id:0,username:"Adi",image:"https://ih0.redbubble.net/image.618379802.1473/flat,1000x1000,075,f.u2.jpg",budget:20000},
+            {id:0,username:"Adi",image:"https://ih0.redbubble.net/image.618379802.1473/flat,1000x1000,075,f.u2.jpg",budget:3},
             {id:1,username:"Moriel",image:"https://ih0.redbubble.net/image.618410871.2644/flat,1000x1000,075,f.u2.jpg",budget:30000},
             {id:2,username:"Yael",image:"https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png",budget:40000},
             {id:3,username:"Shalev",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU33Io5Mgoxj4Hil4F0ctBZUBEXhoQd9fYEg&usqp=CAU",budget:50000},
@@ -94,9 +94,11 @@ class App extends Component {
 
   rentMovie=(userId,movieId)=>{
     if(this.state.userConnected.budget<=0){
-        
+        alert("you dont have a budget")
+    }else{
+        this.changingTheStateOfMoviesAndUsers(userId,movieId,this.constructor.myConstant.OPERTORFORCATALOG,true)
+   
     }
-    this.changingTheStateOfMoviesAndUsers(userId,movieId,this.constructor.myConstant.OPERTORFORCATALOG,true)
    
   }
 
@@ -121,7 +123,7 @@ class App extends Component {
         <div>     
         <Route path="/" exact render={() => <LandingPage
         loginUser={this.loginUser} 
-        users={users} />} />    
+        users={users} />} />   
 
         <Route path="/Movies/User/:id" exact render={({ match }) =>
          <Movies match={match}
