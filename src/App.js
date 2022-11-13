@@ -25,7 +25,8 @@ class App extends Component {
         { id: 5, isRented: false, title: "the corgi panter", year: 2016, img: "https://i.pinimg.com/originals/36/53/b9/3653b9b0cffb99cfa03bd4c19ea92ba7.jpg", descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so some would say, given how actively progressive she is regarding women's rights. Rumor has it that in the bonus scenes she whips out a wand and turns Gaston into a toad, but in order to watch those scenes you need to recite a certain incantation."},
         { id: 6, isRented: false, title: "the usual suspects", year: 2016, img: "https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images-medium-5/welsh-corgi-pembroke-art-canvas-print--the-usual-suspects-movie-poster-sandra-sij.jpg", descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so some would say, given how actively progressive she is regarding women's rights. Rumor has it that in the bonus scenes she whips out a wand and turns Gaston into a toad, but in order to watch those scenes you need to recite a certain incantation."},
         { id: 7, isRented: false, title: "the splash place", year: 2016, img: "https://img.buzzfeed.com/buzzfeed-static/static/2019-02/20/17/asset/buzzfeed-prod-web-02/sub-buzz-19972-1550701336-1.jpg?crop=1080:1620;0,0", descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so some would say, given how actively progressive she is regarding women's rights. Rumor has it that in the bonus scenes she whips out a wand and turns Gaston into a toad, but in order to watch those scenes you need to recite a certain incantation."},
-        { id: 8, isRented: false, title: "corgikazabln", year: 2016, img: "https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images/artworkimages/medium/1/welsh-corgi-cardigan-art-canvas-print-casablanca-movie-poster-sandra-sij.jpg", descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so some would say, given how actively progressive she is regarding women's rights. Rumor has it that in the bonus scenes she whips out a wand and turns Gaston into a toad, but in order to watch those scenes you need to recite a certain incantation."}
+        { id: 8, isRented: false, title: "corgikazabln", year: 2016, img: "https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images/artworkimages/medium/1/welsh-corgi-cardigan-art-canvas-print-casablanca-movie-poster-sandra-sij.jpg", descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so some would say, given how actively progressive she is regarding women's rights. Rumor has it that in the bonus scenes she whips out a wand and turns Gaston into a toad, but in order to watch those scenes you need to recite a certain incantation."},
+        { id: 9, isRented: false, title: "corgando", year: 2016, img: "https://i.pinimg.com/236x/e8/c8/e1/e8c8e1447774bc4bcd90612c4594c5bb--sharknado--sharknado-trailer.jpg", descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so some would say, given how actively progressive she is regarding women's rights. Rumor has it that in the bonus scenes she whips out a wand and turns Gaston into a toad, but in order to watch those scenes you need to recite a certain incantation."}
       ],
       Users:[
             {id:0,username:"Adi",image:"https://ih0.redbubble.net/image.618379802.1473/flat,1000x1000,075,f.u2.jpg",budget:3},
@@ -44,7 +45,10 @@ class App extends Component {
     static get myConstant() {
         return {
             OPERTORFORRENTED : -1,
-            OPERTORFORCATALOG : 1
+            OPERTORFORCATALOG : 1,
+            isRefund:false,
+            isRent:true
+
         }
     }
 
@@ -96,14 +100,14 @@ class App extends Component {
     if(this.state.userConnected.budget<=0){
         alert("you dont have a budget")
     }else{
-        this.changingTheStateOfMoviesAndUsers(userId,movieId,this.constructor.myConstant.OPERTORFORCATALOG,true)
+        this.changingTheStateOfMoviesAndUsers(userId,movieId,this.constructor.myConstant.OPERTORFORCATALOG,this.constructor.myConstant.isRent)
    
     }
    
   }
 
   refundMovie=(userId,movieId)=>{
-    this.changingTheStateOfMoviesAndUsers(userId,movieId,this.constructor.myConstant.OPERTORFORRENTED,false)
+    this.changingTheStateOfMoviesAndUsers(userId,movieId,this.constructor.myConstant.OPERTORFORRENTED,this.constructor.myConstant.isRefund)
   }
 
   
