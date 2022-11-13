@@ -30,7 +30,7 @@ export default class SearchBar extends Component {
     return (
         
      <div>
-      <div className="input-max space  input-group">
+      <div className="input-max SearchBar  input-group">
         <input name='serchValue'  onChange={this.SetSearchValue} type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
         <button type="button" onClick={this.filterTheMovies} className="btn btn-primary">search</button>
       </div>

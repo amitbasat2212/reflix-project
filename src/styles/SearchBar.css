@@ -1,8 +1,7 @@
-.input-max{
-    max-width: 400px;
-    width: 100%;
-    position: relative;
-    width: 50%;
-    left: 38%;
-    top: 35px;
-  }
+.SearchBar{
+    width: 300px;
+    height: 50px;
+    margin: auto; 
+    margin-top: 10px;
+    padding: 10px;
+}
