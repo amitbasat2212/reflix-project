@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import '../styles/MovieStyle.css'
-class HomeButton extends Component {
-    getMovie=(movieId)=>{
-        return this.props.getMovie(movieId);
-    }
+class MovieDetailes extends Component {
+  
     render() {         
-        const movie =this.getMovie(this.props.match.params.id)
+        const movie =this.props.movie
         return (
             <div class="card-deck space">
             <div class="card">
@@ -23,4 +21,4 @@ class HomeButton extends Component {
     }
 }
 
-export default HomeButton
+export default MovieDetailes

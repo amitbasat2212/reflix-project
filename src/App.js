@@ -140,7 +140,7 @@ class App extends Component {
           />} />       
        
         <Route path="/Movies/:id" exact render={({match}) => 
-        <MovieDetailes match={match} getMovie={this.getMovie}/>} />  
+        <MovieDetailes match={match} movie={this.getMovie(match.params.id)}/>} />  
         </div>       
       </div>
       </Router>

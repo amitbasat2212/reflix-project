@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 import { Link} from 'react-router-dom'
 import '../styles/MovieStyle.css'
 
-class Movie extends Component {
-
-   
+class Movie extends Component {  
     
     rentMovie=()=>{     
        this.props.rentMovie(this.props.userConnected,this.props.movie.id)

@@ -20,19 +20,18 @@ export default class SearchBar extends Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-
         this.setState({
             [name]: value
         });
+        this.filterTheMovies();
   }
 
   render() {
-    return (
-        
+    return (        
      <div>
       <div className="input-max SearchBar  input-group">
         <input name='serchValue'  onChange={this.SetSearchValue} type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-        <button type="button" onClick={this.filterTheMovies} className="btn btn-primary">search</button>
+      
       </div>
       </div>
     )
