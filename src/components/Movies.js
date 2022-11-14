@@ -57,7 +57,7 @@ class Movies extends Component {
             <div>
                 <SearchBar  FilterTheMovies={this.FilterTheMovies} />
                 <div className='user-detailes'>
-                    <UserDetails userId={userConnected} getUser={this.props.getUser}/> 
+                    <UserDetails user={this.props.getUser(userConnected)}/> 
                 </div>
          <div className="movie-list-container">          
             {rentedMovies.length!=0?            

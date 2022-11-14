@@ -4,13 +4,10 @@ import { Link } from 'react-router-dom'
 import '../styles/UserDetailes.css'
 class UserDetails extends Component {
     
-    getUser=()=>{
-        return this.props.getUser(this.props.userId);
-    }
+  
 
     render() {
-        const user=this.getUser(this.props.userId)        
-
+        const user=this.props.user
         return (                         
 
                 <div className="card card-user-body" style={{width: 10+'rem'}}>
